@@ -13,7 +13,7 @@ typedef struct {
 } Process;
 
 void calculate_waiting_time(Process processes[], int n) {
-    processes[0].waiting_time = 0; // First process has no waiting time
+    processes[0].waiting_time = 0; // assuming an ideal case and first process with no wait time
     for (int i = 1; i < n; i++) {
         processes[i].waiting_time = processes[i - 1].waiting_time + processes[i - 1].burst_time;
     }
@@ -63,7 +63,7 @@ int main() {
         /**
          * Forks a new child process.
          *
-         * This line of code creates a new child process by calling the `fork()` system call. 
+         * Just to understand: This line of code creates a new child process by calling the `fork()` system call. 
          The child process will be an exact copy of the current process, with its own memory 
          space and execution context. The `pid` variable will be set to 0 in the child 
          process, and to the process ID of the child process in the parent process.
